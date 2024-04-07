@@ -1,5 +1,4 @@
-// App.tsx
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { NamedAPIResource, PokemonClient } from 'pokenode-ts';
 import './App.css';
 import PokemonSearch from './components/PokemonSearch/PokemonSearch';
@@ -12,8 +11,7 @@ function App() {
   const [currentPage, setCurrentPage] = useState<number>(0);
   const [selectedPokemon, setSelectedPokemon] = useState<any | null>(null);
   const [lastSearchTerm, setLastSearchTerm] = useState<string>('');
-  const [pokemonTypes, setPokemonTypes] = useState<NamedAPIResource[]>([]); // State to store list of Pokemon types
-  const [selectedType, setSelectedType] = useState<string>(''); // State to store selected type
+  const [pokemonTypes, setPokemonTypes] = useState<NamedAPIResource[]>([]);
 
   useEffect(() => {
     const fetchAllPokemons = async () => {
@@ -44,7 +42,7 @@ function App() {
 
   const handleSearch = (searchTerm: string) => {
     setCurrentPage(0);
-    setLastSearchTerm(searchTerm); // Store the last search term
+    setLastSearchTerm(searchTerm);
     if (!searchTerm.trim()) {
       setDisplayedPokemons(allPokemons);
       return;

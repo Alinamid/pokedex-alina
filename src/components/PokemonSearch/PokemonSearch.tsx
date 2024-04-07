@@ -20,6 +20,11 @@ const PokemonSearch: React.FC<PokemonSearchProps> = ({ onSearch, pokemonTypes, d
     onSearch(searchTerm, selectedType);
   };
 
+  
+  const handleChooseType = (selectType: string) => {
+    setSelectedType(selectType);
+  };
+
   return (
     <div className="search-container">
       <input
@@ -32,7 +37,7 @@ const PokemonSearch: React.FC<PokemonSearchProps> = ({ onSearch, pokemonTypes, d
       <select
         className="type-dropdown"
         value={selectedType}
-        onChange={(e) => setSelectedType(e.target.value)}
+        onChange={(e) => handleChooseType(e.target.value)}
       >
         <option value="">All Types</option>
         {pokemonTypes.map((type) => (
